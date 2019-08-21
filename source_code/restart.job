@@ -1,0 +1,22 @@
+#PBS -N gv09_nscc
+#PBS -l select=1:ncpus=40
+#PBS -l walltime=24:00:00
+
+module load intel/15.0.2.164
+
+NP=10
+
+cd  $PBS_O_WORKDIR
+
+rm pre_processing/constants.f90
+./convert.pl
+
+ifort report_par.f -o report
+./report
+
+make clean
+make dns
+rm *.o
+
+mpirun -np $NP ./dns > output_dns
+

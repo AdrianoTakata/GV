@@ -1,0 +1,7 @@
+       integer v_ptsx(msh), v_ptsy(msh)
+
+       real*8 v_dy0(msh), v_stf(msh), v_qdy(jmax), 
+     &        v_qdy2(jmax,msh), v_dx2(msh) 
+
+       common/multi_i/ v_ptsx, v_ptsy
+       common/multi_r/ v_dy0, v_qdy, v_qdy2, v_stf, v_dx2

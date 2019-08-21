@@ -1,0 +1,29 @@
+      real*8 fp_fd_coef(7), sp_fd_coef(9), cp_fd_coef(8),
+     &       pp_fd_coef(9), lp_fd_coef(7), fp_fd_coef_e(6)
+                           
+                           
+      real*8 fp_sd_coef(8), sp_sd_coef(10), cp_sd_coef(8), 
+     &       pp_sd_coef(10), lp_sd_coef(8)
+                           
+                           
+      real*8 sp_poi_coef(7,msh), cp_poi_coef(8,msh),
+     &       pp_poi_coef(4,msh), lp_poi_coef(5,msh)
+                           
+                           
+      real*8 w_at_w_coef(9), dwydy_coef(8)
+
+      real*8 sp_integ_coef(7), cp_integ_coef(8), pp_integ_coef(7),
+     &       lp_integ_coef(7) 
+
+
+      common/coefs/ fp_fd_coef, sp_fd_coef, 
+     &              cp_fd_coef, pp_fd_coef,
+     &              lp_fd_coef, fp_sd_coef, 
+     &              sp_sd_coef, cp_sd_coef,
+     &              pp_sd_coef, lp_sd_coef, 
+     &              sp_poi_coef, cp_poi_coef,
+     &              pp_poi_coef, lp_poi_coef, 
+     &              w_at_w_coef, dwydy_coef,
+     &              sp_integ_coef, cp_integ_coef,
+     &              pp_integ_coef, lp_integ_coef,
+     &              fp_fd_coef_e

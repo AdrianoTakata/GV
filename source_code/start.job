@@ -1,0 +1,53 @@
+#PBS -N gv09_nssc
+#PBS -l select=1:ncpus=40:nodetype=n40
+#PBS -l walltime=24:00:00
+
+#module load gcc/4.9.2 mpich/3.1.4
+module load intel/15.0.2.164
+
+NP=10
+
+cd  $PBS_O_WORKDIR
+
+rm pre_processing/constants.f90
+./convert.pl
+
+ifort report_par.f -o report
+./report
+
+cd pre_processing
+make clean
+make coef
+./coef
+make beta
+./beta
+make fs > output_fs
+rm *.mod coef
+
+ifort format_fs.f -o form
+./form
+
+ifort integ.f -o integ
+./integ
+
+cd ../baseflow2D
+make clean
+make
+rm *.o
+mpirun -np $NP ./basef > output_base
+rm basef
+
+ifort format_base.f -o form
+./form
+
+ifort integ.f -o integ
+./integ
+
+cd ..
+make clean
+make dns
+rm *.o
+
+mpirun -np $NP ./dns > output_dns
+
+

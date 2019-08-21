@@ -1,0 +1,4 @@
+       real*8 v_k2b2(kfour)
+       complex*16 v_kb(kfour)
+
+       common/fourier/ v_k2b2, v_kb
